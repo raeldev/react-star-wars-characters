@@ -1,44 +1,8 @@
-import "./style.css";
-import getPeople from "./services/swapi";
-import Tabela from "./components/Tabela";
-import Formulario from "./components/Formulario";
+import "../../../style.css";
+import React from "react";
+import { Link } from "react-router-dom";
 
-import React, { useState, useEffect } from "react";
-
-const Fluid = () => {
-  const [characters, setCharacters] = useState([]);
-
-  useEffect(() => {
-    getPeople().then(list => {
-      let orderedList = orderByName(list.results);
-      setCharacters(orderedList);
-    });
-  }, []);
-
-  const orderByName = array => {
-    return array.sort((a, b) => {
-      if (a.name < b.name) {
-        return -1;
-      }
-      if (a.name > b.name) {
-        return 1;
-      }
-      return 0;
-    });
-  };
-
-  const charListName = () =>
-    characters.map(i => ({
-      name: i.name,
-      eye_color: i.eye_color
-    }));
-
-  const charList = () =>
-    characters.map(i => ({
-      name: i.name,
-      eye_color: i.eye_color
-    }));
-
+const Home = () => {
   return (
     <div className="container-fluid">
       <div className="jumbotron">
@@ -47,15 +11,19 @@ const Fluid = () => {
           This is a simple test, to show Star Wars Characters.
         </p>
         <hr className="my-4" />
-        <button type="button" class="btn btn-primary">
-          Bootstrap-Fluid
-        </button>
-        <button type="button" class="btn btn-light">
-          Flexbox
-        </button>
+        <Link to="/bootstrap-fluid">
+          <button type="button" className="btn btn-primary m-2">
+            Bootstrap-Fluid
+          </button>
+        </Link>
+        <Link to="/flexbox">
+          <button type="button" className="btn btn-light m-2">
+            Flexbox
+          </button>
+        </Link>
       </div>
     </div>
   );
 };
 
-export default Fluid;
+export default Home;

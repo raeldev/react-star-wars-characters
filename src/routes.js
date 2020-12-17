@@ -1,9 +1,8 @@
 import React from "react";
 import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
-import App from "./";
-import FluidContainer from "./Paginas/Fluid";
-import FluidContainer from "./Paginas/Home";
-import FlexContainer from "./Paginas/Flex";
+import Home from "./components/Paginas/Home";
+import FluidContainer from "./components/Paginas/Fluid";
+import FlexContainer from "./components/Paginas/Flex";
 
 const Routes = () => (
   <BrowserRouter>

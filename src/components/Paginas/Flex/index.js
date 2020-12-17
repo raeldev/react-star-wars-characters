@@ -1,11 +1,11 @@
 import "./style.css";
-import getPeople from "./services/swapi";
-import Tabela from "./components/Tabela";
-import Formulario from "./components/Formulario";
+import getPeople from "../../../services/swapi";
+import Tabela from "../../Tabela";
+import Formulario from "../../Formulario";
 
 import React, { useState, useEffect } from "react";
 
-const Fluid = () => {
+const Flex = () => {
   const [characters, setCharacters] = useState([]);
 
   useEffect(() => {
@@ -40,8 +40,8 @@ const Fluid = () => {
     }));
 
   return (
-    <div className="container-fluid">
-      <div className="jumbotron">
+    <div className="container d-flex text-left text-md-center">
+      <div className="col-md-12">
         <h1 className="display-4">SWAPI Explorer</h1>
         <p className="lead">
           This is a simple test, to show Star Wars Characters.
@@ -55,4 +55,4 @@ const Fluid = () => {
   );
 };
 
-export default Fluid;
+export default Flex;

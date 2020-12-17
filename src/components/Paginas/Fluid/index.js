@@ -1,7 +1,7 @@
-import "./style.css";
-import getPeople from "./services/swapi";
-import Tabela from "./components/Tabela";
-import Formulario from "./components/Formulario";
+import "../../../style.css";
+import getPeople from "../../../services/swapi";
+import Tabela from "../../Tabela";
+import Formulario from "../../Formulario";
 
 import React, { useState, useEffect } from "react";
 
@@ -40,7 +40,7 @@ const Fluid = () => {
     }));
 
   return (
-    <div className="container-fluid">
+    <div className="container-fluid text-left text-md-center">
       <div className="jumbotron">
         <h1 className="display-4">SWAPI Explorer</h1>
         <p className="lead">
