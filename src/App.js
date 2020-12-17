@@ -1,14 +1,16 @@
 import "./style.css";
 import getPeople from "./services/swapi";
+import Routes from "./routes";
+
 import React, { useState, useEffect } from "react";
 
 const App = () => {
-  const [peopleList, setPeopleList] = useState([]);
+  const [characters, setCharacters] = useState([]);
 
   useEffect(() => {
     getPeople().then(list => {
       let orderedList = orderByName(list.results);
-      setPeopleList(orderedList);
+      setCharacters(orderedList);
     });
   }, []);
 
@@ -24,13 +26,23 @@ const App = () => {
     });
   };
 
+  const charListName = () =>
+    characters.map(i => ({
+      name: i.name,
+      eye_color: i.eye_color
+    }));
+
+  const charList = () =>
+    characters.map(i => ({
+      name: i.name,
+      eye_color: i.eye_color
+    }));
+
   return (
-    <div>
-      <h1>Hello StackBlitz!</h1>
-      <p>Start editing to see some happen :)</p>
-      {peopleList.map((p, index) => {
-        return <p key={index}> {p.name} </p>;
-      })}
+    <div className="container-fluid">
+      <div className="jumbotron">
+        <Routes />
+      </div>
     </div>
   );
 };
